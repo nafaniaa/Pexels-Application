@@ -54,8 +54,8 @@ fun PhotosCard(
             .clip(shape = RoundedCornerShape(7.dp))
             .background(Color.White)
     ) {
-        val imageUrl = pexelsPhoto.url?.takeIf { it.startsWith("http") }?.replace("http", "https")
-        imageUrl?.let { url ->
+        val imageUrl = pexelsPhoto.url
+        imageUrl.let { url ->
             AsyncImage(
                 model = ImageRequest.Builder(context)
                     .data(url)

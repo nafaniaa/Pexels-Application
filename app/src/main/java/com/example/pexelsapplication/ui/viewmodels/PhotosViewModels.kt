@@ -27,6 +27,32 @@ class PhotosViewModels(
     private val photosRepository: PhotosRepository
 ) : ViewModel(){
 
+    val allPhotosFlow = photosRepository.getAllPhotos()
+    val likedPhotosFlow = photosRepository.getLikedPhotos()
+    val curatedPhotosFlow = photosRepository.getCuratedPhotos()
+
+    // Функция для обработки полученных фотографий
+    fun fetchPhotos() {
+        viewModelScope.launch {
+            allPhotosFlow.collect { allPhotos ->
+                // Обработка полученных всех фотографий
+                photosRepository.handlePhotos(allPhotos)
+            }
+        }
+        viewModelScope.launch {
+            likedPhotosFlow.collect { likedPhotos ->
+                // Обработка полученных понравившихся фотографий
+                photosRepository.handlePhotos(likedPhotos)
+            }
+        }
+        viewModelScope.launch {
+            curatedPhotosFlow.collect { curatedPhotos ->
+                // Обработка полученных кураторских фотографий
+                photosRepository.handlePhotos(curatedPhotos)
+            }
+        }
+    }
+
     var photosUiState: PhotosUiState by mutableStateOf(PhotosUiState.Loading)
         private set
 

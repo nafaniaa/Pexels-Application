@@ -2,6 +2,7 @@ package com.example.pexelsapplication.network
 
 import android.content.Context
 import com.example.pexelsapplication.R
+import com.example.pexelsapplication.data.PexelsPhotoDao
 import com.example.pexelsapplication.data.PexelsPhotoRepository
 import com.example.pexelsapplication.data.PhotosRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -15,11 +16,11 @@ import javax.inject.Inject
 interface PexelsAppContainer {
     val photosRepository: PhotosRepository
 }
-
 @ViewModelScoped
-class PexelsApiClient @Inject constructor(
-    @ApplicationContext private val context: Context
-) : PexelsAppContainer {
+class PexelsApiClient(
+    private val context: Context,
+    private val pexelsPhotoDao: PexelsPhotoDao
+) {
 
     companion object {
         private const val BASE_URL = "https://api.pexels.com/v1/"
@@ -42,11 +43,7 @@ class PexelsApiClient @Inject constructor(
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    private val pexelsApi: PexelsApi by lazy {
+    val pexelsApi: PexelsApi by lazy {
         retrofit.create(PexelsApi::class.java)
-    }
-
-    override val photosRepository: PhotosRepository by lazy {
-        PexelsPhotoRepository(pexelsApi)
     }
 }
