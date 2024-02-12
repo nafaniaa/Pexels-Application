@@ -10,7 +10,7 @@
 6. Coil
  ## Проделанная работы
  ### Подготовка к созданию приложения
- Это было первое достаточно серьёзно приложение, которое мне надо было сделать. Поэтому, когда я прочитала требуемый стек технологий, я ничего не поняла =)
+ Это было первое достаточно серьёзно приложение, которое мне надо было сделать. Поэтому, когда я прочитала требуемый стек технологий, я ничего не поняла :)
  Но и времени зачитываться теорией у меня особо не было. Я решила сразу начать с практики и сделала чем-то похожее приложение [книжная полка](https://github.com/nafaniaa/Bookshelf) по [видеоурокам](https://www.youtube.com/watch?v=V9KaAfywQvw&t=1s). Так я узнала, что такое MVVM , Clean Architecture и как работать с Retrofit. С остальными требуемыми технологиями я поступила также. 
  ## Разработка приложения
  В процессе создания приложения я 3 раза начинала сначала. В первый раз это было сугубо по собственной глупости. Я пыталась делать по примеру кода другого приложения, думая, что потом я смогу подвязать это под то, что мне нужно. При этом я плохо понимала, что пишу. Ошибка. Потратила на это слишком много времени. Сделав выводы, я решила начать с самого начала. Вот [ссылка](https://github.com/nafaniaa/PexelsApp) на этот репозиторий. Однако и тут не без проблем. Когда я решила запустить набросок приложения на телефоне, мне выдавало одну и ту же ошибку:
@@ -18,15 +18,50 @@
 
  Тут я очень долго сидела. Облазила все сайты и ничего не помогло. Поэтому если вы это читаете, может вы сможете, если вам не сложно, сказать мне, в чём конкретно была ошибка. Предполгаю, что проблема была в зависимостях, ибо когда переделывала всё в третий раз, всё нормально запустилось.
 
- Ну и теперь про последнюю попытку. Тут даже я смогла что-то запустить, однако картинки так и не начали прогружаться. Скорее всего проблема с созданием базы данных. Так как работу с Retrofit проверяла очень много раз. 
-
- ## Структура проекта
- 1. app/src/main/java/com/example/pexelsapplication/data  -   путь к пакету для работы с данными.
- 2. app/src/main/java/com/example/pexelsapplication/network - путь к пакету для работы с сетью.
- 3. app/src/main/java/com/example/pexelsapplication/ui/screens - путь к пакету для создания элементов пользовательского интерфейса.
- 4. app/src/main/java/com/example/pexelsapplication/ui/viewmodels - путь к пакету с ViewModel.
- 5. app/build.gradle.kts - все зависимости.
+ Ну и теперь про последнюю попытку. Тут даже я смогла что-то запустить, однако картинки так и не начали прогружаться. Скорее всего проблема с созданием базы данных. Так как работу с Retrofit проверяла очень много раз.
  
+ ![image](https://github.com/nafaniaa/Pexels-Application/assets/72029335/85d853b3-a035-4f0e-a348-d1aa69c509b2)
+ 
+ Однако когда открываю App Inspector, база данных не отображается.
+А потом я переделала, и теперь при запуске приложения происходит сбой :) 
+
+
+
+## Project Structure
+- **app**: Contains the main application code.
+  - `src/main/java/com/example/pexelsapplication`: Main package for application code.
+    - `PexelsApplication.kt`: Application class.
+    - `ui`: Package for UI-related components.
+      - `screens`: Package for different screens of the application.
+        - `HomeScreen.kt`: Composable function for the home screen.
+        - `LoadingScreen.kt`: Composable function for the loading screen.
+        - `NetworkStubScreen.kt`: Composable function for the network stub screen.
+        - `GridPhotosScreen.kt`: Composable function for displaying a grid of photos.
+        - `PexelsPhotoApp.kt`: Composable function representing the entire application.
+        - `EmptyBookmarksScreenTextAndButton.kt`: Composable function for displaying empty bookmarks screen text and button.
+        - `EmptyDetailsScreenTextAndButton.kt`: Composable function for displaying empty details screen text and button.
+        - `EmptyHomeScreenTextAndButton.kt`: Composable function for displaying empty home screen text and button.
+      - `viewmodels`: Package for view model classes.
+        - `PhotosViewModels.kt`: ViewModel for managing photo data and UI state.
+    - `data`: Package for data-related components.
+      - `entities`: Package for database entity classes.
+        - `PexelsPhotoEntity.kt`: Entity class representing a photo in the database.
+      - `enums`: Package for enum classes.
+        - `PexelsSize.kt`: Enum class representing different sizes of images on Pexels.
+      - `repositories`: Package for repository classes.
+        - `PexelsPhotoRepository.kt`: Repository class for fetching photos from the Pexels API.
+      - `dao`: Package for DAO (Data Access Object) classes.
+        - `PexelsPhotoDao.kt`: DAO interface for photo-related database operations.
+      - `database`: Package for database-related components.
+        - `PexelsPhotoDatabase.kt`: Database class using Room for storing photos.
+    - `network`: Package for network-related components.
+      - `PexelsApi.kt`: Interface for defining API endpoints.
+      - `PexelsApiClient.kt`: Class for making API requests using Retrofit and OkHttpClient.
+      - `PexelsResponse.kt`: Data class representing the response from the Pexels API.
+    - `PexelsAppContainerImpl.kt`: Class implementing dependency injection container for the application.
+- **res**: Contains resources such as layouts, strings, and drawables.
+- **build.gradle**: Gradle build configuration file for the entire project.
+- **README.md**: Markdown file containing project overview and structure.
 
  ## Вывод
  Думаю имеет смысл подвести какой-то итог по проделанной работе.
