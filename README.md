@@ -21,6 +21,11 @@
  Ну и теперь про последнюю попытку. Тут даже я смогла что-то запустить, однако картинки так и не начали прогружаться. Скорее всего проблема с созданием базы данных. Так как работу с Retrofit проверяла очень много раз. 
 
  ## Структура проекта
+ 1. app/src/main/java/com/example/pexelsapplication/data  -   путь к пакету для работы с данными.
+ 2. app/src/main/java/com/example/pexelsapplication/network - путь к пакету для работы с сетью.
+ 3. app/src/main/java/com/example/pexelsapplication/ui/screens - путь к пакету для создания элементов пользовательского интерфейса.
+ 4. app/src/main/java/com/example/pexelsapplication/ui/viewmodels - путь к пакету с ViewModel.
+ 5. app/build.gradle.kts - все зависимости.
  
 
  ## Вывод
