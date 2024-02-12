@@ -1,28 +1,32 @@
-﻿# Pexels-Application (Тестовое задание)
- ## Описание
- Передо мной стояла задача сделать приложение похожее на Pinterest на базе [Pixel Api](https://www.pexels.com/api/documentation/), в котором пользователь сможет смотреть подборки картинок и выбирать понравившиеся.
- ## Требуемый стек технологий (Jetpack Compose)
+# Pexels-Application (Test Task)
+
+## Description
+I was tasked with creating an application similar to Pinterest based on the [Pexels API](https://www.pexels.com/api/documentation/), where users can view collections of images and select their favorites.
+
+## Required Technology Stack (Jetpack Compose)
 1. Single Activity, Clean Architecture, MVVM
 2. Dagger2/Hilt
 3. Retrofit
 4. Coroutines+Flow
 5. Room
 6. Coil
- ## Проделанная работы
- ### Подготовка к созданию приложения
-Это было первое достаточно серьезное приложение, которое мне надо было сделать. Поэтому, когда я прочитала требуемый стек технологий, я ничего не поняла :) Но и времени на изучение теории у меня особо не было. Я решила сразу начать с практики и сделала что-то похожее на приложение [книжная полка](https://github.com/nafaniaa/Bookshelf) по [видеоурокам](https://www.youtube.com/watch?v=V9KaAfywQvw&t=1s).Так я узнала, что такое MVVM, Clean Architecture и как работать с Retrofit. С остальными требуемыми технологиями я поступила так же.
- ## Разработка приложения
-В процессе создания приложения я 3 раза начинала сначала. В первый раз это было сугубо по собственной глупости. Я пыталась делать по примеру кода другого приложения, думая, что потом я смогу подвязать это под то, что мне нужно. При этом я плохо понимала, что пишу. Ошибка. Потратила на это слишком много времени. Сделав выводы, я решила начать с самого начала. Вот [ссылка](https://github.com/nafaniaa/PexelsApp) на этот репозиторий. Однако и тут не без проблем. Когда я решила запустить набросок приложения на телефоне, мне выдавало одну и ту же ошибку:
+
+## Work Done
+### Preparation for Application Development
+This was the first fairly serious application I had to create. Therefore, when I read the required technology stack, I didn't understand anything :) But I didn't have much time to study the theory anyway. I decided to start with practice right away and made something similar to the [bookshelf](https://github.com/nafaniaa/Bookshelf) application based on [video tutorials](https://www.youtube.com/watch?v=V9KaAfywQvw&t=1s). This way, I learned what MVVM is, Clean Architecture, and how to work with Retrofit. I approached the rest of the required technologies in the same way.
+
+## Application Development
+During the application development, I started over three times. The first time was purely due to lack of experience. I tried to follow the code of another application, thinking that later I would be able to adapt it to what I needed. At the same time, I poorly understood what I was writing. Big mistake. I spent too much time on it. Finally, I decided to start from scratch. Here is the [link](https://github.com/nafaniaa/PexelsApp) to that repository. However, there were still some problems. When I tried to run the draft application on my phone, I kept getting the same error:
+
  > caused by: org.gradle.api.internal.artifacts.ivyservice.defaultlenientconfiguration$artifactresolveexception: could not resolve all files for configuration ':app:debugruntimeclasspath'.
 
-Тут я очень долго сидела. Облазила все сайты и ничего не помогло. Поэтому если вы это читаете, может, вы сможете, если вам не сложно, сказать мне, в чём конкретно была ошибка. Предполагаю, что проблема была в зависимостях, ибо когда переделывала всё в третий раз, всё нормально запустилось.
+I spent a long time on this. I searched all the websites, but nothing helped. So, if you're reading this, maybe you can tell me, if it's not too much trouble, what exactly the error was. I assume the problem was with the dependencies, because when I redid everything for the third time, everything started up fine.
 
-Ну и теперь про последнюю попытку. Тут даже я смогла что-то запустить, однако картинки так и не начали прогружаться. Скорее всего проблема с созданием базы данных, так как работу с Retrofit проверяла очень много раз.
- 
- ![image](https://github.com/nafaniaa/Pexels-Application/assets/72029335/85d853b3-a035-4f0e-a348-d1aa69c509b2)
- 
-Однако когда открываю App Inspector, база данных не отображается. А потом я переделала, и теперь при запуске приложения происходит сбой :)
+Now, let's talk about the last attempt. Even I managed to start something, but the images still didn't start loading. Most likely, there was an issue with creating the database, because I tested the Retrofit functionality many times.
 
+![image](https://github.com/nafaniaa/Pexels-Application/assets/72029335/85d853b3-a035-4f0e-a348-d1aa69c509b2)
+
+However, when I open the App Inspector, the database is not displayed. And then I redid it, and now when I launch the application, it crashes :)
 
 ## Project Structure
 - **app**: Contains the main application code.
@@ -60,10 +64,34 @@
 - **build.gradle**: Gradle build configuration file for the entire project.
 - **README.md**: Markdown file containing project overview and structure.
 
- ## Вывод
- Думаю имеет смысл подвести какой-то итог по проделанной работе.
- 1. Теперь я точно знаю, что конкретно мне надо учить.
- 2. Я поняла для чего нужна архитектура приложения. До этого в университете я сталкивалась только с MVC, и то совсем немного. (Да и я не понимала зачем это надо)
- 3. Мне нужен кто-то, у кого я могу что-то спросить, работа в команде
- 4. Нужно повышать уровень английского языка. Потому что, к сожалению, на просторах русскоязычного интернета источников с информацией не так много.
- 5. Мне точно нравится android разработка.
+ ## Screenshots
+ Unfortunately, a lot of things, as mentioned earlier, I can't run to take a screenshot.
+ 
+EmptyBookmarksScreen.kt
+ 
+ ![image](https://github.com/nafaniaa/Pexels-Application/assets/72029335/68e9dc34-0328-4e60-a8e0-a5e8d282f45a)
+
+EmptyDetailsScreen.kt
+
+ ![image](https://github.com/nafaniaa/Pexels-Application/assets/72029335/a3395b81-69fa-4671-8ae2-ea085996f8c5)
+
+EmptyHomeScreen.kt
+ 
+ ![image](https://github.com/nafaniaa/Pexels-Application/assets/72029335/7526f959-90d6-4ed5-ab0a-fbc9c9ae6708)
+
+NetworkStubScreen.kt
+ 
+ ![image](https://github.com/nafaniaa/Pexels-Application/assets/72029335/b5634741-b4a9-4892-bf10-a40ddfafa2de)
+
+
+
+
+  
+
+## Conclusion
+I think it makes sense to summarize the work done.
+1. Now I know exactly what I need to learn.
+2. I understand why application architecture is needed. Before, I only encountered MVC in university, and even then only a little. (And I didn't understand why it was needed)
+3. I need someone I can ask something, teamwork.
+4. I need to improve my English language skills. Because, unfortunately, there are not so many sources of information in the Russian-speaking Internet.
+5. I definitely like android development.
